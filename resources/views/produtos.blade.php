@@ -43,41 +43,15 @@
             <section class="produtos col-md-8">
                 <h1>Recentes</h1>
                 <ul class="row">
-                    <li class="col-6">
-                        <img src="img/cafe-12.jpg" alt="Café 1">
-                        <span>R$ 3,25</span>
-                        <h2>Vanilla Diceys</h2>
-                    </li>
+                    @foreach($produtos as $produto)
+                        <li class="col-6">
+                            <img style="width: 288px; height: 188px" src="{{asset('img/fotos/'.$produto->foto)}}" alt="Café 1">
+                            <span>R$ {{$produto->preco_atual}}</span>
+                            <h2>Última alteração dia: {{$produto->data_post}}</h2>
+                            <h2>{{$produto->nome_produto}}</h2>
+                        </li>
+                    @endforeach
 
-                    <li class="col-6">
-                        <img src="img/cafe-22.jpg" alt="Café 1">
-                        <span>R$ 4,50</span>
-                        <h2>Blueberry Latte</h2>
-                    </li>
-
-                    <li class="col-6">
-                        <img src="img/cafe-32.jpg" alt="Café 1">
-                        <span>R$ 3,25</span>
-                        <h2>Ghostbusters Brown</h2>
-                    </li>
-
-                    <li class="col-6">
-                        <img src="img/cafe-42.jpg" alt="Café 1">
-                        <span>R$ 4,50</span>
-                        <h2>Strawberry Fields</h2>
-                    </li>
-
-                    <li class="col-6">
-                        <img src="img/cafe-52.jpg" alt="Café 1">
-                        <span>R$ 3,25</span>
-                        <h2>Scane Comb</h2>
-                    </li>
-
-                    <li class="col-6">
-                        <img src="img/cafe-62.jpg" alt="Café 1">
-                        <span>R$ 4,50</span>
-                        <h2>Wild Bill</h2>
-                    </li>
                 </ul>
             </section>
         </div>
