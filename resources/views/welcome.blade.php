@@ -4,7 +4,7 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{asset('css/style1.css')}}">
 <main class="intro">
-    <h1>Egenharia de<br>Computação</h1>
+    <h1>Engenharia de<br>Computação</h1>
     <p>5º Semestre</p>
 </main>
 
