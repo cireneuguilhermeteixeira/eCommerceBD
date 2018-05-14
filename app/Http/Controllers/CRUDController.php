@@ -20,6 +20,8 @@ class CRUDController extends Controller
 
 
     public function direciona_inventario(){
+
+
         $produtos = DB::select( 'select * from produtos where id_usuario = ? order by id desc',[Auth::user()->id]);
         return view('inventario',['produtos'=>$produtos]);
 
@@ -36,8 +38,7 @@ class CRUDController extends Controller
         $id_usuario = Auth::user()->id;
         $data = date('Y-m-d H:m:s');
         $nome_arquivo = date('Y-m-d-H-m-s');
-
-        $id_categoria = Input::post('categoria');
+        $id_categoria = 1;
         $nome = Input::post('nome_produto');
         $preco = Input::post('preco_atual');
         $quantidade = Input::post('quantidade');
@@ -71,7 +72,7 @@ class CRUDController extends Controller
         $id_usuario = Auth::user()->id;
         $data = date('Y-m-d H:i');
         $nome_arquivo = date('Y-m-d-H-m-s');
-        $id_categoria = Input::post('categoria');
+        $id_categoria = 1;
         $nome = Input::post('nome_produto');
         $preco = Input::post('preco_atual');
         $quantidade = Input::post('quantidade');
