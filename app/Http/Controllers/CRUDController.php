@@ -51,9 +51,9 @@ class CRUDController extends Controller
             }
             File::move($imagem,public_path().'/img/fotos/'.$nome_arquivo.'.'.$extensao);
             $img = $nome_arquivo.'.'.$extensao;
-            DB::insert('insert into produtos (id_usuario,id_categoria, nome_produto, preco_atual, quantidade,data_post,descricao,foto) values (?, ?, ?, ?, ?, ?, ?,?)', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$descricao,$img]);
+            DB::insert('insert into produtos (id_usuario,id_categoria, nome_produto, preco_atual, quantidade,data_post,foto) values (?, ?, ?, ?, ?, ?,?)', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$img]);
         }else{
-            DB::insert('insert into produtos (id_usuario,id_categoria, nome_produto, preco_atual, quantidade,data_post,descricao) values (?, ?, ?, ?, ?, ?, ?)', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$descricao]);
+            DB::insert('insert into produtos (id_usuario,id_categoria, nome_produto, preco_atual, quantidade,data_post) values (?, ?, ?, ?, ?, ?)', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data]);
 
         }
 
