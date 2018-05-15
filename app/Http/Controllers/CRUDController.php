@@ -76,7 +76,7 @@ class CRUDController extends Controller
         $nome = Input::post('nome_produto');
         $preco = Input::post('preco_atual');
         $quantidade = Input::post('quantidade');
-        $descricao = Input::post('descricao');
+        //$descricao = Input::post('descricao');
         if (Input::file('imagem')){
             $imagem =Input::file('imagem');
             $extensao =  $imagem->getClientOriginalExtension();
@@ -85,9 +85,9 @@ class CRUDController extends Controller
             }
             File::move($imagem,public_path().'/img/fotos/'.$nome_arquivo.'.'.$extensao);
             $img = $nome_arquivo.'.'.$extensao;
-            DB::update('update produtos set `id_usuario`= ?, `id_categoria`= ?, `nome_produto`= ?, `preco_atual` = ?, `quantidade`= ? ,`data_post`= ?,`descricao` =?,`foto`=? where `id` = ?', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$descricao,$img,$id]);
+            DB::update('update produtos set id_usuario= ?, id_categoria= ?, nome_produto= ?, preco_atual = ?, quantidade= ? ,data_post= ?,foto=? where id = ?', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$img,$id]);
         }else{
-            DB::update('update produtos set `id_usuario`= ?, `id_categoria`= ?, `nome_produto`= ?, `preco_atual` = ?, `quantidade`= ? ,`data_post`= ?,`descricao` =? where `id` = ?', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$descricao,$id]);
+            DB::update('update produtos set id_usuario= ?, id_categoria= ?, nome_produto= ?, preco_atual = ?, quantidade= ? ,data_post= ? where id = ?', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$id]);
 
         }
 

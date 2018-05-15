@@ -37,7 +37,7 @@
                             <li><span>Preço </span> R$ {{$produto->preco_atual}} </li>
                             <li>
                                 <span>Descrição</span><br>
-                                <p>{{$produto->descricao}}</p>
+                                <p></p>
                             </li>
                         </ul>
 
