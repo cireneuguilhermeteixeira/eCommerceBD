@@ -43,7 +43,7 @@
                                 <div class="media">
                                     <ul class="tab-avatars" data-anime="scroll">
                                         <li>
-                                        <!--<figure class="figure">
+                                        <figure class="figure">
                                                 @if(Request::is('editando/*'))
                                                     <img style="width: 200px; height: 200px" src="{{asset('img/fotos/'.$produto->foto)}}" class="figure-img img-fluid " >
                                                 @else
@@ -54,16 +54,15 @@
                                                     <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
                                                     <div><input value="Escolher imagem" name="imagem" type="file"/></div>
                                                 </figcaption>
-                                            </figure>-->
+                                            </figure>
                                         </li>
                                     </ul>
                                     <ul class="">
                                         <li><label>* Categoria</label>
-                                           <!--
-                                            <select name="categoria" id="">
-                                                foreach($categorias as $categoria)
-                                                    <option value="{{$categoria->id}}">{{$categoria->nome_categoria}}</option>
-                                                endforeach
+
+                                            <!--<select name="categoria" id="">
+                                                //foreach($categorias as $categoria)
+                                                //endforeach
                                             </select>-->
                                         </li>
                                         <li>
