@@ -12,7 +12,7 @@
     <title>eCommerce</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js')}}" ></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -88,15 +88,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row">
-                                                    <div class="col-md-6 offset-md-4">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
 
                                                 <div class="form-group row mb-0">
                                                     <div class="col-md-8 offset-md-4">
@@ -104,9 +96,7 @@
                                                             {{ __('Login') }}
                                                         </button>
 
-                                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                            {{ __('Forgot Your Password?') }}
-                                                        </a>
+
                                                     </div>
                                                 </div>
                                             </form>

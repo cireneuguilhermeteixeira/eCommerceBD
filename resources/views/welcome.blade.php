@@ -35,7 +35,6 @@
         <div class="col-sm">
             <h2>CRUD</h2>
             <p>Nesse aplicativo é possível fazermos a manutenção de um cadastro. O usuário quando cadastrado poderá criar um novo produto para vender, editá-lo ou excluílo.</p>
-            <a href="#">Ver Mapa</a>
         </div>
     </div>
 
@@ -46,7 +45,6 @@
         <div class="col-sm">
             <h2>Consulta</h2>
             <p>Existem 3 tipos de consulta. Por preço, categoria e por data. A categoria é uma tabela a parte, se relacionando com os produtos por meio de uma chave estrangeira.</p>
-            <a href="#">Ver Mapa</a>
         </div>
     </div>
 
@@ -57,7 +55,6 @@
         <div class="col-sm">
             <h2>Compra</h2>
             <p>No projeto também teremos uma simulação de compra, que ficará guardado numa tabela individual nomeada vendas. O usuário poderá verificar o número de produtos seus vendidos e o quanto ganhou pelo site.</p>
-            <a href="#">Ver Mapa</a>
         </div>
     </div>
 

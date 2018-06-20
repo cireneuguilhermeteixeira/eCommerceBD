@@ -7,12 +7,9 @@
     <div class="row">
         <nav class="side-nav col-md-4 col-xl-3">
             <ul>
-                <li><a class="nav-contabilidade" href="#">Contabilidade</a></li>
-                <li><a class="nav-produtos" href="#">Produtos</a></li>
-                <li><a class="nav-paginas" href="#">Páginas</a></li>
-                <li><a class="nav-plugins" href="#">Plugins</a></li>
-                <li><a class="nav-formularios" href="#">Formulários</a></li>
-                <li><a class="nav-hospedagens" href="#">Hospedagens</a></li>
+                <li><a class="nav-produtos" href="{{asset('inventario')}}">Produtos</a></li>
+                <li><a class="nav-contabilidade" href="{{asset('Contabilidade')}}">Contabilidade</a></li>
+                <li><a class="nav-plugins" href="https://github.com/cireneuguilhermeteixeira/eCommerceBD" target="_blank">GitHub</a></li>
             </ul>
         </nav>
         <section class="produtos col-md-8 col-xl-9 mb-5">
@@ -37,7 +34,7 @@
                             <li><span>Preço </span> R$ {{$produto->preco_atual}} </li>
                             <li>
                                 <span>Descrição</span><br>
-                                <p></p>
+                                <p>{{$produto->descricao}}</p>
                             </li>
                         </ul>
 

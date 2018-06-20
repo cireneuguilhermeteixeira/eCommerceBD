@@ -60,10 +60,11 @@
                                     <ul class="">
                                         <li><label>* Categoria</label>
 
-                                            <!--<select name="categoria" id="">
-                                                //foreach($categorias as $categoria)
-                                                //endforeach
-                                            </select>-->
+                                            <select name="categoria" id="">
+                                                @foreach($categorias as $categoria)
+                                                    <option value="{{$categoria->id}}">{{$categoria->nome_categoria}}</option>
+                                                @endforeach
+                                            </select>
                                         </li>
                                         <li>
                                             {!! Form::label('nome_produto','*Nome:') !!}

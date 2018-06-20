@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+
 use File;
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -38,7 +39,7 @@ class CRUDController extends Controller
         $id_usuario = Auth::user()->id;
         $data = date('Y-m-d H:m:s');
         $nome_arquivo = date('Y-m-d-H-m-s');
-        $id_categoria = 1;
+        $id_categoria = Input::post('categoria');
         $nome = Input::post('nome_produto');
         $preco = Input::post('preco_atual');
         $quantidade = Input::post('quantidade');
@@ -51,9 +52,9 @@ class CRUDController extends Controller
             }
             File::move($imagem,public_path().'/img/fotos/'.$nome_arquivo.'.'.$extensao);
             $img = $nome_arquivo.'.'.$extensao;
-            DB::insert('insert into produtos (id_usuario,id_categoria, nome_produto, preco_atual, quantidade,data_post,foto) values (?, ?, ?, ?, ?, ?,?)', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$img]);
+            DB::insert('insert into produtos (id_usuario,id_categoria, nome_produto, preco_atual, quantidade,data_post,descricao,foto) values (?, ?, ?, ?, ?,?, ?,?)', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$descricao,$img]);
         }else{
-            DB::insert('insert into produtos (id_usuario,id_categoria, nome_produto, preco_atual, quantidade,data_post) values (?, ?, ?, ?, ?, ?)', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data]);
+            DB::insert('insert into produtos (id_usuario,id_categoria, nome_produto, preco_atual, quantidade,descricao,data_post) values (?, ?, ?, ?, ?, ?,?)', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$descricao,$data]);
 
         }
 
@@ -72,11 +73,11 @@ class CRUDController extends Controller
         $id_usuario = Auth::user()->id;
         $data = date('Y-m-d H:i');
         $nome_arquivo = date('Y-m-d-H-m-s');
-        $id_categoria = 1;
+        $id_categoria = Input::post('categoria');
         $nome = Input::post('nome_produto');
         $preco = Input::post('preco_atual');
         $quantidade = Input::post('quantidade');
-        //$descricao = Input::post('descricao');
+        $descricao = Input::post('descricao');
         if (Input::file('imagem')){
             $imagem =Input::file('imagem');
             $extensao =  $imagem->getClientOriginalExtension();
@@ -85,9 +86,9 @@ class CRUDController extends Controller
             }
             File::move($imagem,public_path().'/img/fotos/'.$nome_arquivo.'.'.$extensao);
             $img = $nome_arquivo.'.'.$extensao;
-            DB::update('update produtos set id_usuario= ?, id_categoria= ?, nome_produto= ?, preco_atual = ?, quantidade= ? ,data_post= ?,foto=? where id = ?', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$img,$id]);
+            DB::update('update produtos set id_usuario= ?, id_categoria= ?, nome_produto= ?, preco_atual = ?, quantidade= ? ,data_post= ?,descricao=? ,foto=? where id = ?', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$descricao,$img,$id]);
         }else{
-            DB::update('update produtos set id_usuario= ?, id_categoria= ?, nome_produto= ?, preco_atual = ?, quantidade= ? ,data_post= ? where id = ?', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$data,$id]);
+            DB::update('update produtos set id_usuario= ?, id_categoria= ?, nome_produto= ?, preco_atual = ?, quantidade= ?,descricao=?,data_post= ? where id = ?', [$id_usuario,$id_categoria,$nome,$preco,$quantidade,$descricao,$data,$id]);
 
         }
 
@@ -99,7 +100,7 @@ class CRUDController extends Controller
 
     public function deletar($id){
         //DELETE FROM `produtos` WHERE `produtos`.`id` = 25
-        DB::delete('delete from `produtos` where `produtos`.`id` = ?',[$id]);
+        DB::delete('delete from produtos where produtos.id = ?',[$id]);
         \Session::flash('mensagem_sucesso','Produto Deletado com Sucesso!!');
         return Redirect::to('inventario');
     }
